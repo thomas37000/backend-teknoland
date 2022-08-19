@@ -20,5 +20,23 @@ public class ArtisteServiceJpaImpl implements ArtisteService {
     }
 
     @Override
-    public List<Artiste> ListeArtistes(){return  artisteRepository.findAll();}
+    public List<Artiste> listeArtistes() {
+        return artisteRepository.findAll();
+    }
+
+    @Override
+    public Artiste getArtisteById(long idArtiste) {
+        return artisteRepository.findById(idArtiste).get();
+    }
+
+    @Override
+    public void updateArtiste(Artiste artiste) {
+        artisteRepository.save(artiste);
+    }
+
+    @Override
+    public void deleteArtisteById(Long idArtiste) {
+        artisteRepository.deleteById(idArtiste);
+    }
+
 }

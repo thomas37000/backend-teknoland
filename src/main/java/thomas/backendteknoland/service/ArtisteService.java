@@ -8,7 +8,11 @@ public interface ArtisteService {
 
     void addArtiste(Artiste artiste) throws Exception;
 
-    List<Artiste> ListeArtistes();
+    List<Artiste> listeArtistes();
 
     Artiste getArtisteById(long id);
+
+    void updateArtiste(Artiste artiste);
+
+    void deleteArtisteById(Long idArtiste);
 }

@@ -1,11 +1,13 @@
 package thomas.backendteknoland.bo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,7 +17,7 @@ public class Vinyle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idVinyle;
     @NonNull
-    private String titre;
+    private String titreVinyle;
     @NonNull
     private String format;
     @NonNull
@@ -25,6 +27,23 @@ public class Vinyle {
     private LocalDate dateDeSortie;
 
     // updated
-    public void setId(Long id) {
+    public void setId(Long idVinyle) {
     }
+
+    @ManyToOne // 0..* => 1
+    private Genre genre;
+
+
+    // @ManyToOne
+    //   private Artiste unTitre;
+    // @ManyToMany
+    // private List<Artiste> artiste;
+
+    // 1 => 0..*
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "titre_id")
+    @JsonManagedReference
+    private List<Titre> titre;
+
+
 }

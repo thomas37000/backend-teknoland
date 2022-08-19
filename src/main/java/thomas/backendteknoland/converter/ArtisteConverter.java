@@ -15,8 +15,8 @@ public class ArtisteConverter implements Converter<String, Artiste> {
 
     @Override
     public Artiste convert(String idAuFormatTexte) {
-        long id = Integer.parseInt(idAuFormatTexte);
-        return artisteService.getArtisteById(id);
+        long idArtiste = Integer.parseInt(idAuFormatTexte);
+        return artisteService.getArtisteById(idArtiste);
     }
 }
 

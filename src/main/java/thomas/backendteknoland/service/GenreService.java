@@ -10,5 +10,5 @@ public interface GenreService {
 
     List<Genre> listeGenres();
 
-    Genre getGenreById(long id);
+    Genre getGenreById(long idGenre);
 }

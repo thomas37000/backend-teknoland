@@ -8,11 +8,12 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Entity
-@Data @NoArgsConstructor
+@Data
+@NoArgsConstructor
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idGenre;
     @NonNull
     private String libelle;
 
