@@ -6,9 +6,9 @@ import thomas.backendteknoland.bo.Genre;
 
 public interface GenreRepository extends JpaRepository<Genre, Long> {
     // méthode qui renvoie un genre à partir du libellé
-    public Genre findByLibelle(String libelle);
+    Genre findByLibelle(String libelle);
 
     // méthode qui renvoie true si un genre avec ce libellé existe, false sinon
-    public boolean existsByLibelle(String libelle);
+    boolean existsByLibelle(String libelle);
 
 }

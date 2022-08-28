@@ -7,9 +7,11 @@ import java.util.List;
 public interface TitreService {
     void addTitre(Titre titre) throws Exception;
 
-    List<Titre> getTitres();
+    List<Titre> listeTitres();
 
     Titre getTitreById(long idTitre);
+
+    Titre getTitreByNom(String nom);
 
     void updateTitre(Titre titre);
 

@@ -10,6 +10,8 @@ public interface ArtisteService {
 
     List<Artiste> listeArtistes();
 
+    Artiste getArtisteByPseudo(String pseudo);
+
     Artiste getArtisteById(long id);
 
     void updateArtiste(Artiste artiste);

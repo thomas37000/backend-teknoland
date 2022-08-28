@@ -30,6 +30,11 @@ public class ArtisteServiceJpaImpl implements ArtisteService {
     }
 
     @Override
+    public Artiste getArtisteByPseudo(String pseudo) {
+        return artisteRepository.findByPseudo(pseudo);
+    }
+
+    @Override
     public void updateArtiste(Artiste artiste) {
         artisteRepository.save(artiste);
     }

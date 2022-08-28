@@ -22,7 +22,7 @@ public class TitreServiceJpaImpl implements TitreService {
     }
 
     @Override
-    public List<Titre> getTitres() {
+    public List<Titre> listeTitres() {
         return titreRepository.findAll();
     }
 
@@ -30,6 +30,11 @@ public class TitreServiceJpaImpl implements TitreService {
     public Titre getTitreById(long idTitre) {
         // récupérer un titre by id de la Bdd
         return titreRepository.findById(idTitre).get();
+    }
+
+    @Override
+    public Titre getTitreByNom(String nom) {
+        return titreRepository.findByNom(nom);
     }
 
     @Override

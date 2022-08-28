@@ -35,4 +35,9 @@ public class GenreServiceJpaImpl implements GenreService {
         return genreRepository.findById(idGenre).get();
     }
 
+    @Override
+    public void deleteGenreById(Long id) {
+        genreRepository.findById(id);
+    }
+
 }

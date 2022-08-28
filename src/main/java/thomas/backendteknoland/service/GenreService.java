@@ -11,4 +11,6 @@ public interface GenreService {
     List<Genre> listeGenres();
 
     Genre getGenreById(long idGenre);
+
+    void deleteGenreById(Long id);
 }

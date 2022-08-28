@@ -1,11 +1,12 @@
 package thomas.backendteknoland.bo;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -16,6 +17,17 @@ public class Genre {
     private long idGenre;
     @NonNull
     private String libelle;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
+    private Vinyle vinyle;
+
+//    @ManyToMany
+//    @JoinTable( name="vinyle_genres",
+//            joinColumns = { @JoinColumn(name = "idGenre") },
+//            inverseJoinColumns = { @JoinColumn(name = "idVinyle") })
+//    @JsonBackReference
+//    private List<Vinyle> vinyle;
 
     /**
      * On override equals pour pouvoir utiliser contains
@@ -30,9 +42,8 @@ public class Genre {
     /**
      * Constructeur utilisé pour initialiser les genres dans le service
      */
-    public Genre(String libelle) {
+    public Genre(long idGenre, @NonNull String libelle) {
+        this.idGenre = idGenre;
         this.libelle = libelle;
     }
-
-
 }

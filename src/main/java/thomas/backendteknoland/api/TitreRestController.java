@@ -3,7 +3,6 @@ package thomas.backendteknoland.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import thomas.backendteknoland.bo.Titre;
-import thomas.backendteknoland.bo.Vinyle;
 import thomas.backendteknoland.service.TitreService;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public class TitreRestController {
 
     @GetMapping
     public List<Titre> getTitres() {
-        return titreService.getTitres();
+        return titreService.listeTitres();
     }
 
     @GetMapping("/{idTitre}")

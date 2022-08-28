@@ -18,34 +18,34 @@ public class Titre {
     private long idTitre;
 
     @NonNull
-    private String libelle;
+    private String nom;
 
     @Min(0)
     @Max(8) // 8 min
     private int duree;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
+    private Artiste artiste;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
+    private Vinyle vinyle;
+
     @Override
     public boolean equals(Object titre) {
-        String libelle = ((Titre) titre).getLibelle();
-        return this.libelle.equals(libelle);
+        String nom = ((Titre) titre).getNom();
+        return this.nom.equals(nom);
     }
 
-    public Titre(String libelle) {
-        this.libelle = libelle;
+    public Titre(long idTitre, @NonNull String nom, int duree, Vinyle vinyle) {
+        this.idTitre = idTitre;
+        this.nom = nom;
+        this.duree = duree;
+        this.vinyle = vinyle;
     }
 
     public void setId(Long idTitre) {
     }
-
-    @ManyToOne // 0..* => 1
-    private Artiste artiste;
-
-    // plusieurs titres d'un artiste pour un vinyle
-    @ManyToOne // 0..* => 1
-    @JsonBackReference
-    private Vinyle vinyle;
-
-     //@OneToOne(mappedBy = "titre")
-
 
 }

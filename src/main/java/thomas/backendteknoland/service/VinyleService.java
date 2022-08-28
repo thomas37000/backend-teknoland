@@ -12,6 +12,8 @@ public interface VinyleService {
 
     Vinyle getVinyleById(long id);
 
+    Vinyle getVinyleByTitre(String titreVinyle);
+
     void updateVinyle(Vinyle vinyle);
 
     void deleteVinyleById(Long id);

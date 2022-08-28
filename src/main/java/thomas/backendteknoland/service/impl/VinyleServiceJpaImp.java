@@ -32,6 +32,11 @@ public class VinyleServiceJpaImp implements VinyleService {
     }
 
     @Override
+    public Vinyle getVinyleByTitre(String titreVinyle) {
+        return vinyleRepository.findByTitreVinyle(titreVinyle);
+    }
+
+    @Override
     public void updateVinyle(Vinyle vinyle) {
         vinyleRepository.save(vinyle);
     }

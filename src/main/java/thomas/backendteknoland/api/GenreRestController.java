@@ -26,6 +26,13 @@ public class GenreRestController {
         return genre;
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteGenre(@PathVariable("id") Long id) {
+        if (id != null) {
+            genreService.deleteGenreById(id);
+        }
+    }
+
    /*
        @PutMapping("/{iGenre}")
         public Artiste putArtiste(@PathVariable Long idGenre, @RequestBody Genre genre) {
