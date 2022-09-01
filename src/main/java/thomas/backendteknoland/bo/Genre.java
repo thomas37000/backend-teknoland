@@ -18,17 +18,6 @@ public class Genre {
     @NonNull
     private String libelle;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
-    private Vinyle vinyle;
-
-//    @ManyToMany
-//    @JoinTable( name="vinyle_genres",
-//            joinColumns = { @JoinColumn(name = "idGenre") },
-//            inverseJoinColumns = { @JoinColumn(name = "idVinyle") })
-//    @JsonBackReference
-//    private List<Vinyle> vinyle;
-
     /**
      * On override equals pour pouvoir utiliser contains
      * Ici on dit qu'on considère que 2 genres sont égaux si ils ont leurs 2 libellés égaux

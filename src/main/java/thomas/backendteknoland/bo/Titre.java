@@ -24,13 +24,13 @@ public class Titre {
     @Max(8) // 8 min
     private int duree;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
+    @ManyToOne
+    //@JsonBackReference
     private Artiste artiste;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
-    private Vinyle vinyle;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JsonBackReference
+//    private Vinyle vinyle;
 
     @Override
     public boolean equals(Object titre) {
@@ -38,11 +38,10 @@ public class Titre {
         return this.nom.equals(nom);
     }
 
-    public Titre(long idTitre, @NonNull String nom, int duree, Vinyle vinyle) {
+    public Titre(long idTitre, @NonNull String nom, int duree) {
         this.idTitre = idTitre;
         this.nom = nom;
         this.duree = duree;
-        this.vinyle = vinyle;
     }
 
     public void setId(Long idTitre) {

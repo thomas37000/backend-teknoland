@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import java.util.List;
@@ -21,20 +22,18 @@ public class Artiste {
     @NonNull
     private String pseudo;
 
-    // un artiste peut avoir plusieurs titres sur un vinyle
-    @OneToMany
-    @JsonManagedReference
-    private List<Titre> titresArtiste;
-
-    // un artiste peut être sur plusieurs vinyles
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
-    private Vinyle vinyle;
+    private String logo;
 
     @Override
     public boolean equals(Object artiste) {
         String pseudo = ((Artiste) artiste).getPseudo();
         return this.pseudo.equals(pseudo);
+    }
+
+    public Artiste(long idArtiste, @NonNull String pseudo, String logo) {
+        this.idArtiste = idArtiste;
+        this.pseudo = pseudo;
+        this.logo = logo;
     }
 
     public void setId(Long idArtiste) {
